@@ -13,7 +13,9 @@ The data used in this analysis comes from **Data.World**:
 
 [Financial Services Consumer Complaints](https://data.world/markbradbourne/rwfd-real-world-fake-data/workspace/file?filename=Financial+Consumer+Complaints.csv)
 
-The dataset includes:
+**Dataset Before Model it as Star Schema:**
+
+_17 columns, 75,513 rows_
 
 `complaint_id`,
 `date_sumbited`,
@@ -33,6 +35,20 @@ The dataset includes:
 `timely_response`,
 `consumer_disputed`
 
+**Star Schema**
+
+**Fact:**
+- Complaints
+
+**Dimensions:**  
+- Complaint Details
+- Product
+- Issues
+- Company
+- Date
+
+
+![Star Schema](assets/data-structure-erd.png)
 
 ## Tools Used
 - **Power Query:** For data cleaning, data transformation. Refer at [here](https://github.com/haajar-es/Financial-Consumer-Complaints/blob/main/assets/data-transformation-query.pq).
