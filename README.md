@@ -58,7 +58,7 @@ _17 columns, 75,513 rows_
 
 ## Visualizations
 
-[Interactive Report](https://app.powerbi.com/view?r=eyJrIjoiMmRkNDRiMWEtYTI3ZC00MGUxLWJiY2ItNmMzMTBhZjUwOTliIiwidCI6ImFlYmMzMTg4LWU3MzYtNGRlYi05MzJiLWRjNDU5OGMwNDQ3ZCIsImMiOjN9)
+[Interactive Report](https://app.powerbi.com/view?r=eyJrIjoiNGZhNTE3NmQtNjA3ZS00ZmVlLWJiOTAtMzYwYzhkMjBhOTk5IiwidCI6ImFlYmMzMTg4LWU3MzYtNGRlYi05MzJiLWRjNDU5OGMwNDQ3ZCIsImMiOjN9)
 
 
 ![Financial Complaints Overview Dashboard](assets/financial-services-consumer-complaints-overview.png)
