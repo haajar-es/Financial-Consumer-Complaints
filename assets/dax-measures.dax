@@ -1,0 +1,96 @@
+% Complaints by Media =
+VAR _CntEachMedia = [Total Complaints]
+VAR _FixedTotalCnt =
+    CALCULATE (
+        [Total Complaints],
+        ALLSELECTED ( 'Complaint Detail'[Submitted via] )
+    )
+VAR _Percent =
+    DIVIDE ( _CntEachMedia, _FixedTotalCnt )
+RETURN
+    _Percent
+
+
+% Complaints in Progress =
+DIVIDE ( [Complaints in Progress], [Total Complaints] )
+
+
+% Complaints Resolved at No Cost =
+VAR _CompsResolvedNoCost =
+    CALCULATE (
+        [Total Complaints],
+        'Complaint Detail'[Company response to consumer] <> "Closed with monetary relief"
+    )
+VAR _PercResolvedNoCost =
+    DIVIDE ( _CompsResolvedNoCost, [Total Complaints] )
+RETURN
+    _PercResolvedNoCost
+
+
+Avg Complaint Count per Product =
+VAR _Total = [Total Complaints]
+VAR _ProductCntInContext =
+    DISTINCTCOUNT ( 'Product'[Product] )
+VAR _AvgCntPerProduct =
+    DIVIDE ( _Total, _ProductCntInContext )
+RETURN
+    _AvgCntPerProduct
+
+
+Complaints in Progress =
+CALCULATE (
+    [Total Complaints],
+    'Complaint Detail'[Company response to consumer] = "In progress"
+)
+
+
+Data Label - Complaints by Media (% breakdown) =
+VAR _FormattedTotal =
+    FORMAT ( [Total Complaints], "#,0" )
+VAR _FormattedPerc =
+    FORMAT ( [% Complaints by Media], "0%;-0%;0%" )
+VAR _Label = _FormattedTotal & " | " & _FormattedPerc
+RETURN
+    _Label
+
+
+Disputed Consumers =
+CALCULATE (
+    COUNTROWS ( Complaints ),
+    'Complaint Detail'[Consumer disputed?] = "Yes"
+)
+
+
+Disputed Rate = 
+DIVIDE( Complaints[Disputed Consumers], [Total Complaints] )
+
+
+Max Received Date = 
+MAX( Complaints[Date Received] )
+
+
+Max Total Complaints by Issue =
+VAR _MaxTotalComplaintsByIssue =
+    CALCULATE (
+        MAXX ( VALUES ( Issues[Issue] ), [Total Complaints] ),
+        ALLSELECTED ( Issues[Issue] )
+    )
+RETURN
+    _MaxTotalComplaintsByIssue
+
+
+Min Received Date = 
+MIN( Complaints[Date Received] )
+
+
+Timely Response Rate =
+VAR _TimelyResponse =
+    CALCULATE ( [Total Complaints], 'Complaint Detail'[Timely response?] = "Yes" )
+VAR _TimelyResponseRate =
+    DIVIDE ( _TimelyResponse, [Total Complaints] )
+RETURN
+    _TimelyResponseRate
+
+
+Total Complaints =
+COUNTROWS ( Complaints )
