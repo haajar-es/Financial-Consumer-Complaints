@@ -1,3 +1,4 @@
+-- % Complaints by Media 
 % Complaints by Media =
 VAR _CntEachMedia = [Total Complaints]
 VAR _FixedTotalCnt =
@@ -10,11 +11,11 @@ VAR _Percent =
 RETURN
     _Percent
 
-
+-- % Complaints in Progress
 % Complaints in Progress =
 DIVIDE ( [Complaints in Progress], [Total Complaints] )
 
-
+-- % Complaints Resolved at No Cost
 % Complaints Resolved at No Cost =
 VAR _CompsResolvedNoCost =
     CALCULATE (
@@ -26,7 +27,7 @@ VAR _PercResolvedNoCost =
 RETURN
     _PercResolvedNoCost
 
-
+-- Avg Complaint Count per Product
 Avg Complaint Count per Product =
 VAR _Total = [Total Complaints]
 VAR _ProductCntInContext =
@@ -36,14 +37,14 @@ VAR _AvgCntPerProduct =
 RETURN
     _AvgCntPerProduct
 
-
+-- Complaints in Progress
 Complaints in Progress =
 CALCULATE (
     [Total Complaints],
     'Complaint Detail'[Company response to consumer] = "In progress"
 )
 
-
+-- Data Label - Complaints by Media (% breakdown)
 Data Label - Complaints by Media (% breakdown) =
 VAR _FormattedTotal =
     FORMAT ( [Total Complaints], "#,0" )
@@ -53,22 +54,22 @@ VAR _Label = _FormattedTotal & " | " & _FormattedPerc
 RETURN
     _Label
 
-
+-- Disputed Consumers
 Disputed Consumers =
 CALCULATE (
     COUNTROWS ( Complaints ),
     'Complaint Detail'[Consumer disputed?] = "Yes"
 )
 
-
+-- Disputed Rate
 Disputed Rate = 
 DIVIDE( Complaints[Disputed Consumers], [Total Complaints] )
 
-
+-- Max Received Date 
 Max Received Date = 
 MAX( Complaints[Date Received] )
 
-
+-- Max Total Complaints by Issue
 Max Total Complaints by Issue =
 VAR _MaxTotalComplaintsByIssue =
     CALCULATE (
@@ -78,11 +79,11 @@ VAR _MaxTotalComplaintsByIssue =
 RETURN
     _MaxTotalComplaintsByIssue
 
-
+-- Min Received Date
 Min Received Date = 
 MIN( Complaints[Date Received] )
 
-
+-- Timely Response Rate
 Timely Response Rate =
 VAR _TimelyResponse =
     CALCULATE ( [Total Complaints], 'Complaint Detail'[Timely response?] = "Yes" )
@@ -91,6 +92,6 @@ VAR _TimelyResponseRate =
 RETURN
     _TimelyResponseRate
 
-
+-- Total Complaints
 Total Complaints =
 COUNTROWS ( Complaints )
