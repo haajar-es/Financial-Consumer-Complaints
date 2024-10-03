@@ -60,7 +60,7 @@ _17 columns, 75,513 rows_
 
 🔎[Power BI Interactive Report](https://app.powerbi.com/view?r=eyJrIjoiYjU3MmM1YmUtODc2Zi00ZTYyLWE1NmYtMzZjZGU0ZmM1YjYwIiwidCI6ImFlYmMzMTg4LWU3MzYtNGRlYi05MzJiLWRjNDU5OGMwNDQ3ZCIsImMiOjN9)
 
-Inspired Design: [Tableau dashboard](https://lnkd.in/gPPQAbpR) created by [Gandes Goldestan](https://public.tableau.com/app/profile/gandes.goldestan/vizzes). <br>
+Inspired Design: [Tableau dashboard](https://public.tableau.com/app/profile/gandes.goldestan/viz/FinancialComplaintsDashboardRWFD/Dashboard) created by [Gandes Goldestan](https://public.tableau.com/app/profile/gandes.goldestan/vizzes). <br>
 
 ![Financial Complaints Overview Dashboard](assets/financial-services-consumer-complaints-overview.png)
 
